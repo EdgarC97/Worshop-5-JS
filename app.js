@@ -5,21 +5,25 @@ let badFood = 15000; // Costo de la comida mala
 let goodFood = 23000; // Costo de la comida buena
 
 //Case 1 Food election
+alert ("Hildebrando está en el aeropuerto el Dorado, ya le pagaron su salario ($2.500.000) y decidirá que comer")
 // Función para elegir la comida
 function foodChoice() {
   while (true) {
-      let choice = prompt("¿Qué comida desea Hildebrando? \n1. Almojábana con gaseosa (15.000) \n2. Subway con gaseosa (23.000)");
+      let choice = prompt("¿Qué comida desea Hildebrando? \n1. Almojábana con gaseosa (15.000) \n2. Subway con gaseosa \n3. No come nada");
       switch(choice) {
-          case '1':
+        case '1':
               hSalary -= badFood;
               console.log("Hildebrando eligió la almojábana con gaseosa. Le caerá mal porque lleva mucho en el stand. Ahora tiene $" + hSalary + " disponibles.");
               return;
-          case '2':
+        case '2':
               hSalary -= goodFood;
               console.log("Hildebrando eligió el subway con gaseosa. Estará llenito y bien. Ahora tiene $" + hSalary + " disponibles.");
               return;
-          default:
-              alert("La opción escogida es inválida. Por favor, elija 1 o 2.");
+        case '3':
+              console.log("Hildebrando pasará hambre hasta que llegue a Medellin");
+              return
+        default:
+              alert("La opción escogida es inválida. Por favor, elija 1, 2 o 3.");
       }
   }
 }
@@ -62,7 +66,6 @@ function adjustSuitcaseSize() {
   console.log(`Las nuevas dimensiones de la maleta de Hildebrando son: alto = ${nuevoAlto.toFixed(2)}cm, largo = ${nuevoLargo.toFixed(2)}cm, ancho = ${nuevoAncho.toFixed(2)}cm`);
 }
 
-// Ajustamos el tamaño de la maleta de Hildebrando
 adjustSuitcaseSize();
 
 
@@ -112,6 +115,7 @@ let playGame = () => {
   let userGame;
 
   // Solicitamos la elección del usuario hasta que ingrese un número válido
+  alert("Hildebrando ahora se juega 300.000 con el taxista en piedra papel o tijeras")
   while (!userGame) {
       userChoice = prompt("Elige: \n1. Piedra \n2. Papel \n3. Tijeras");
       userGame = options[userChoice];
@@ -136,9 +140,9 @@ let playGame = () => {
 
 playGame();
 
+//Case 6 Dress pattern and final result
 
-// Declaramos las variables
-let daysInMacondo = 0; // Días que Hildebrando estuvo en Macondo
+let daysInMacondo = 0; // Contador de días que Hildebrando estuvo en Macondo
 let alive = true; // Si Hildebrando está vivo
 
 // Función para simular las actividades de Hildebrando
@@ -191,7 +195,7 @@ let simulateActivities = () => {
                 } else if (hotelChoice === '3') {
                     // Si va al casino y apuesta, solo se queda con pasaje de regreso
                     hSalary = taxiFare; // Su salario se reduce a la tarifa del taxi
-                    console.log("Hildebrando fue al casino y apostó. Ahora solo tiene $" + hSalary + " disponibles para el pasaje de regreso.");
+                    console.log("Hildebrando fue al casino y apostó. Ahora solo tiene $" + hSalary + " disponibles para el taxi de regreso.");
                 } else {
                     // Si elige bailar, la pasa muy bien
                     console.log("Hildebrando la pasó muy bien bailando en el hotel.");
@@ -211,7 +215,7 @@ let simulateActivities = () => {
     console.log("Resumen de las vacaciones de Hildebrando:");
     console.log("----------------------------------------");
     console.log(`Días en Macondo: ${daysInMacondo}`);
-    console.log(`Estado al final: ${alive ? "Regresó" : "No pudo regresar"}`);
+    console.log(`Estado al final: ${alive ? "Regresó" : "F se murió"}`);
     console.log(`Dinero gastado: $${2500000 - hSalary}`);
 }
 
